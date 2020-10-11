@@ -1,5 +1,6 @@
 export {
     setuser,
     setToken,
-    setplaylist
+    setplaylist,
+    setDiscoverWeekly
 } from './Auth';

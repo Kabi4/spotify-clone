@@ -26,13 +26,17 @@ class App extends Component {
         spotifyWebApi.getPlaylist()
         .then(playlist=>{
           this.props.setplaylist(playlist);
-        })
+        });
+        spotifyWebApi.getPlaylist("37i9dQZEVXcJZyENOWUFo7")
+        .then(res=>{
+          this.props.setWeeklyPlaylist(res);
+        });
       };
   }
   render() {
     return (
       <div className="App">
-        {!this.props.token?<Player spotify = {spotifyWebApi}/>:<Login/>}
+        {this.props.token?<Player spotify = {spotifyWebApi}/>:<Login/>}
       </div>
     );
   }
@@ -49,7 +53,8 @@ const mapDispatchToProps = (dispatch)=>{
   return{
     setuser: (user)=>{dispatch(actionCreators.setuser(user))},
     settoken: (token,expiresIn)=>{dispatch(actionCreators.setToken(token,expiresIn))},
-    setplaylist: (playlist)=>{dispatch(actionCreators.setplaylist(playlist))}
+    setplaylist: (playlist)=>{dispatch(actionCreators.setplaylist(playlist))},
+    setWeeklyPlaylist: (discover_weeklu)=>{dispatch(actionCreators.setDiscoverWeekly(discover_weeklu))}
   }
 }
 

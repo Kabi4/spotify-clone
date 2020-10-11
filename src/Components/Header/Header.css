@@ -1,0 +1,50 @@
+.header{
+    display: flex;
+}
+
+.header__left{
+    flex: 0.5;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    border-radius: 30px;
+    padding: 10px;
+    min-width: 70px;
+}
+
+.header__left__input{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-family: inherit;
+}
+
+.header__left__icon{
+    transition: all 0.2s ease-in-out;
+    color: grey;
+    margin: 0 0.5rem;
+}
+
+.header__left__icon:hover{
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.2);
+}
+
+.header__right{
+    flex: 0.5;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.header__right__avatar{
+    margin-right: 0.8rem;
+}
+
+.header__right__name{
+    background-image: linear-gradient(to top,rgb(243, 243, 243),rgb(23, 190, 23));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 1.2rem;
+}

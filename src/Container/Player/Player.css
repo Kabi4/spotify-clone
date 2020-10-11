@@ -12,6 +12,7 @@
 .player__footer{
     position: fixed;
     bottom: 1rem;
+    z-index: 1000;
     left: 0;
     width: 96%;
     margin: 0 2%;

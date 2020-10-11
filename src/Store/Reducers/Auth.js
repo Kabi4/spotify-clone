@@ -5,7 +5,8 @@ const initialState = {
     playlist: [],
     playing: false,
     item: null,
-    token: null
+    token: null,
+    discoverWeekly: null
 };
 
 export const authreducer = (state = initialState,action)=>{
@@ -33,6 +34,11 @@ export const authreducer = (state = initialState,action)=>{
             return{
                 ...state,
                 playlist: action.payload.playlist
+            }
+        case actionTypes.SETDISCOVERWEEKLY:
+            return{
+                ...state,
+                discoverWeekly: action.payload.discoverWeekly
             }
         default:
             return state;

@@ -41,4 +41,13 @@ export const setplaylist = (playlist) =>{
             playlist
         }
     }
+};
+
+export const setDiscoverWeekly = (discoverWeekly) =>{
+    return{
+        type: actionTypes.SETDISCOVERWEEKLY,
+        payload:{
+            discoverWeekly
+        }
+    }
 }
