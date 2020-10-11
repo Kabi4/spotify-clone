@@ -1,0 +1,5 @@
+//AUTH
+export const SETUSER = "SETUSER";
+export const SETTOKEN = "SETTOKEN";
+export const RESETUSETANDTOKEN = "RESETUSETANDTOKEN";
+export const SETPLAYLIST = "SETPLAYLIST"; 

@@ -1,0 +1,48 @@
+.sidebar{
+    flex: 20%;
+    background-color: #040404;
+    color: white;
+    max-height: 100vh;
+    min-width: 230px;
+    padding: 0 1rem;
+    padding-bottom: 8rem;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.sidebar > hr{
+    margin: 10px auto;
+    width: 90%;
+    border: 1px solid #282828;
+}
+
+.sidebar::-webkit-scrollbar{
+    width: 5px;
+  }
+  
+.sidebar::-webkit-scrollbar-track{
+    background-color: black;
+  }
+  
+.sidebar::-webkit-scrollbar-thumb {
+    background:#eee; 
+  }
+  
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+  }
+
+.sidebar__logo{
+    height: 7rem;
+    margin: auto;
+    display: block;
+    padding: 1rem;
+    object-fit: contain;
+}
+
+.sidebar__playlist{
+    margin: 0 1rem;
+    padding: 5px;
+    font-size: 1.2rem;
+    font-family: none;
+}
