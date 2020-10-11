@@ -1,13 +1,51 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Header from '../../Components/Header/Header';
+
 import './Body.css';
+
+import * as actionCreators from '../../Store/ActionCreators/index';
+
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import Songs from '../../Components/Songs/Songs';
 
 class Body extends Component {
+    playPlayList = () =>{
+        this.props.spotifyWebApi.play({
+            context_uri: `spotify:playlist:37i9dQZEVXcJZyENOWUFo7`,
+        })
+        .then(res=>{
+            return this.props.spotifyWebApi.getMyCurrentPlayingTrack()
+        })
+        .then(res=>{
+            this.props.setItem(res.item);
+            this.props.togglePlaying(true);
+        })
+        .catch(err=>{
+            alert("Buy Premium")
+            console.log(err);
+        })
+    }
+
+    playSong = (id) =>{
+        this.props.spotifyWebApi.play({
+            uris: [`spotify:track:${id}`],
+        })
+        .then(res=>{
+            return this.props.spotifyWebApi.getMyCurrentPlayingTrack()
+        })
+        .then(res =>{
+            this.props.setItem(res.item);
+            this.props.togglePlaying(true);
+        })
+        .catch(err=>{
+            alert("Buy Premium")
+            console.log(err);
+        })
+    }
+
     render(){
         return (
             <div className="body" >
@@ -22,12 +60,12 @@ class Body extends Component {
                 </div>
                 <div className="body__songs">
                         <div className="body__songs__icon">
-                            <PlayCircleFilledIcon className="body__shuffle" />
+                            <PlayCircleFilledIcon onClick={this.playPlayList} className="body__shuffle" />
                             <FavoriteIcon fontSize="large" />
                             <MoreHorizIcon />
                         </div>
                         {this.props.discoverWeekly?this.props.discoverWeekly.tracks.items.map((item) => (
-                            <Songs track={item.track} />
+                            <Songs playSong={this.playSong} key={item.track.name} track={item.track} />
                             )):null}
                 </div>
             </div>
@@ -37,8 +75,16 @@ class Body extends Component {
 
 const mapStateToProps = (state)=>{
     return{
-        discoverWeekly: state.auth.discoverWeekly
+        discoverWeekly: state.auth.discoverWeekly,
+        spotifyWebApi: state.auth.spotifyWebAPI,
     }
-}
+};
 
-export default connect(mapStateToProps,null)(Body);
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        setItem: (item)=>{dispatch(actionCreators.setItem(item))},
+        togglePlaying: (state)=>(dispatch(actionCreators.togglePlaying(state)))
+    }
+};
+
+export default connect(mapStateToProps,mapDispatchToProps)(Body);

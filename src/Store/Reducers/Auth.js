@@ -6,7 +6,8 @@ const initialState = {
     playing: false,
     item: null,
     token: null,
-    discoverWeekly: null
+    discoverWeekly: null,
+    spotifyWebAPI: null
 };
 
 export const authreducer = (state = initialState,action)=>{
@@ -39,6 +40,21 @@ export const authreducer = (state = initialState,action)=>{
             return{
                 ...state,
                 discoverWeekly: action.payload.discoverWeekly
+            }
+        case actionTypes.SETSPOTIFYWEBAPI:
+            return{
+                ...state,
+                spotifyWebAPI: action.payload.spotifyWebAPI
+            }
+        case actionTypes.TOGGLEPLAYING:
+            return{
+                ...state,
+                playing: action.payload.setState===false||action.payload.setState===true?action.payload.setState:(!state.playing)
+            }
+        case actionTypes.SETITEM:
+            return{
+                ...state,
+                item: action.payload.item 
             }
         default:
             return state;

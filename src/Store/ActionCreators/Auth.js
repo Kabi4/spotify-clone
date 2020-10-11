@@ -1,3 +1,4 @@
+import { bindActionCreators } from 'redux';
 import * as actionTypes from './../actionTypes';
 
 export const resetUserAndToken = ()=>{
@@ -48,6 +49,33 @@ export const setDiscoverWeekly = (discoverWeekly) =>{
         type: actionTypes.SETDISCOVERWEEKLY,
         payload:{
             discoverWeekly
+        }
+    }
+};
+
+export const setSpotifyWebAPI = (spotifyWebAPI) =>{
+    return{
+        type: actionTypes.SETSPOTIFYWEBAPI,
+        payload:{
+            spotifyWebAPI
+        }
+    }
+};
+
+export const togglePlaying = (state) =>{
+    return{
+        type: actionTypes.TOGGLEPLAYING,
+        payload: {
+            setState: state===false||state===true?state:null
+        }
+    }
+};
+
+export const setItem = (item) =>{
+    return{
+        type: actionTypes.SETITEM,
+        payload: {
+            item
         }
     }
 }

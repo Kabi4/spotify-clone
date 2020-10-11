@@ -10,7 +10,7 @@ class Player extends Component {
             <main className="player">
                 <div className="player__body">
                     <Sidebar/>
-                    <Body spotify={this.props.spotify} />
+                    <Body />
                 </div>
                 <div className="player__footer">
                     <Footer/>

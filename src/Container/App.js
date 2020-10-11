@@ -12,6 +12,7 @@ const spotifyWebApi = new SpotifyWebApi();
 class App extends Component {
 
   componentDidMount(){
+      this.props.setSpotifyWEBAPI(spotifyWebApi);
       const access = getTokenFromResponse();
       window.location.hash = "";
       let token = access.access_token;
@@ -36,7 +37,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.props.token?<Player spotify = {spotifyWebApi}/>:<Login/>}
+        {this.props.token?<Player/>:<Login/>}
       </div>
     );
   }
@@ -54,7 +55,8 @@ const mapDispatchToProps = (dispatch)=>{
     setuser: (user)=>{dispatch(actionCreators.setuser(user))},
     settoken: (token,expiresIn)=>{dispatch(actionCreators.setToken(token,expiresIn))},
     setplaylist: (playlist)=>{dispatch(actionCreators.setplaylist(playlist))},
-    setWeeklyPlaylist: (discover_weeklu)=>{dispatch(actionCreators.setDiscoverWeekly(discover_weeklu))}
+    setWeeklyPlaylist: (discover_weeklu)=>{dispatch(actionCreators.setDiscoverWeekly(discover_weeklu))},
+    setSpotifyWEBAPI: (spotifyWEBAPI)=>{dispatch(actionCreators.setSpotifyWebAPI(spotifyWEBAPI))}
   }
 }
 

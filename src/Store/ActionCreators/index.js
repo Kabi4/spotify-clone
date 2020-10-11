@@ -2,5 +2,8 @@ export {
     setuser,
     setToken,
     setplaylist,
-    setDiscoverWeekly
+    setDiscoverWeekly,
+    setSpotifyWebAPI,
+    togglePlaying,
+    setItem
 } from './Auth';
