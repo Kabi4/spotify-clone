@@ -1,7 +1,7 @@
 # APP LIVE
   [Spotify Live](https://spotify-clone-8e3af.web.app/)
 # Sneaky Peak  
-  ![Spotify Snekay Peak](https://github.com/Kabi4/Your-Expense-Budget-App/blob/master/Sample.png?raw=true "Budgety")
+  ![Spotify Snekay Peak](https://github.com/Kabi4/spotify-clone/blob/main/Sneaky%20Peak.png)
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
